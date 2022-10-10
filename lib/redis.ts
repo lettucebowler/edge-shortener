@@ -12,7 +12,11 @@ export async function setUrl(url: string) {
 }
 
 export async function getUrl(short: string): Promise<string> {
+  const before = new Date();
   const { data } = await redis.get(`short/${short}`);
+  const after = new Date();
+  const duration = after.getTime() = before.getTime();
+  console.log(duration);
   return data;
 }
 
